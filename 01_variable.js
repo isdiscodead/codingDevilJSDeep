@@ -69,3 +69,27 @@ const arr = [
 ];
 const newUser = Object.fromEntries(arr);
 console.log(newUser);
+
+
+/*
+Symbol 심볼 -> 유일한 식별자를 만들 때 사용함 ! log 직으면 다 Symbol()로 뜨지만 내용물은 다름
+*/
+const id = Symbol(); // new 없이 사용 ... 
+const id1 = Symbol('id'); // 매개변수로 들어가는 것은 설명 ! 
+const id2 = Symbol('id'); // id2와 다름
+console.log(id1.description);
+
+const symbolUser = { // 프로퍼티 키로 사용
+	name : "Mike",
+	age : 30,
+	[id] : 'myId'
+} 
+
+Object.keys(symbolUser); // name과 age만 출력됨 -> 원본 객체 수정 없이 새로운 속성 추가 가능
+Object.getOwnPropertySymbols(symbolUser); // 존재하는 symbol 키 리스트
+Reflect.ownKeys(symbolUser); // symbol 키를 포함한 모든 key 리스트 
+
+// 전역 심볼 
+id1 = Symbol.for('id'); // 하나를 생성한 뒤 키를 통해 같은 Symbol 공유
+id2 = Symbol.for('id'); // id1 === id2
+console.log(Symbol.keyFor(id1)); 
