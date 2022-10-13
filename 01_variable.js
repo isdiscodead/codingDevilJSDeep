@@ -29,3 +29,43 @@ let user1 = new User('Mike', 30);
 let user2 = new User('Jane', 22);
 let user3 = new User('Tom', 17);
 user3.sayName();
+
+
+/*
+Object 객체 
+*/
+// computed property
+let a = 'age';
+let user = {
+	name : 'Mike',
+	[a] : 30 // age : 30 
+}
+
+// 식 자체를 넣는 것도 가능 ! 
+user = {
+	[1 + 4] : 5, // 5 : 5 
+	["안녕"+"하세요"] : "Hello"
+}
+
+// Object.assign(초기값, 소스1, 소스2 ... ) -> 객체 복제 / 병합 
+let cloneUser = user; // 객체에 대한 참조값 복사
+cloneUser = Object.assign({}, user);
+console.log(cloneUser != user); // true
+
+// Object.keys() -> 키 배열 반환
+console.log(Object.keys(user));
+
+// Object.values() -> 값 배열 반환
+console.log(Object.values(user));
+
+// Object.entries() : 키 / 값 배열 반환 
+console.log(Object.entries(user));
+
+// Object.fromEntries() : 키 / 값 배열을 객체로
+const arr = [
+	["name", "Mike"],
+	["age", 30],
+	["gender", "male"]
+];
+const newUser = Object.fromEntries(arr);
+console.log(newUser);
