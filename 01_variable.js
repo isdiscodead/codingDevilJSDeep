@@ -93,3 +93,61 @@ Reflect.ownKeys(symbolUser); // symbol 키를 포함한 모든 key 리스트
 id1 = Symbol.for('id'); // 하나를 생성한 뒤 키를 통해 같은 Symbol 공유
 id2 = Symbol.for('id'); // id1 === id2
 console.log(Symbol.keyFor(id1)); 
+
+
+/*
+Number, Math
+*/
+// 진법 변환 -> toString() 
+let num1 = 10;
+let num2 = 255;
+
+num1.toString(); // "10"
+num1.toString(2); // 이진수 .. "1010"
+num2.toString(16); // 16진수 .. "ff"
+
+// Math : 수학과 관련된 property, method를 가진 내장 객체
+console.log(Math.PI); // 원주율 
+num1 = 5.1;
+num2 = 5.7;
+
+// Math.ceil(num) -> 올림 
+console.log(Math.ceil(num1)); // 6
+console.log(Math.ceil(num2)); // 6
+
+// Math.floor(num) -> 내림
+console.log(Math.floor(num1)); // 5
+console.log(Math.floor(num2)); // 5
+
+// Math.round(num) → 반올림
+console.log(Math.round(num1)); // 5
+console.log(Math.round(num2)); // 6
+
+// 소수점 자릿수 표현 -> Math.round(값 * 10^자릿수)/10^자릿수 공식 사용 or toFixed()
+// ex. 소수점 둘째자리 표현 
+let userRate = 30.1234;
+console.log( Math.round(userRate * 100)/100 ); // 30.12
+console.log( userRate.toFixed(2) ); // "30.12"
+
+// isNaN() -> NaN인지 확인하는 유일한 방법 !! 
+NaN === NaN // false
+isNaN(x) // false
+
+// parseInt()와 Number()
+let margin = '10px';
+parseInt(margin); // 10
+Number(margin); // NaN
+
+let redColor = 'f3';
+parseInt(redColor); // NaN
+// 진법 설정 가능 !! 
+parseInt(redColor, 16); // 243
+parseInt('11', 2); // 3
+
+// parseFloat()도 parseInt()와 동일하게 동작, 부동소수점 반환
+let padding = '18.5%';
+parseFloat(padding); // 18.5
+parseInt(padding); // 18 -> 소수점 이하 무시 
+
+// 1 ~ 100 사이의 랜덤 숫자 뽑기
+Math.floor( Math.random() * 100 ) + 1;
