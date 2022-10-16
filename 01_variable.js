@@ -161,3 +161,33 @@ Math.floor( Math.random() * 100 ) + 1;
 /*
 String 
 */
+
+// ", ', ` 사용 
+// `( 백틱 )은 변수, 표현식, 여러 줄을 포함한 문자열 사용 시 사용
+const name = "지언";
+let result = `My name is ${name}.`;
+
+const str = "Hi guys. Nice to meet you.";
+
+str.length // 문자열 길이
+str[idx] // 특정 위치에 접근 … 변경은 불가
+str.toUpperCase() // 모두 대문자로 변경
+str.toLowerCase() // 모두 소문자로 변경
+str.indexOf('is'); // 특정 문자 인덱스 찾기
+
+if ( str.indexOf('Hi') > -1 ) {
+	console.log('Hi가 포함된 문장');
+}
+
+// 부분 문자열 -> slice()와 substring()
+let desc = "abcdefg";
+desc.slice(2); // "cdefg"
+desc.slice(0, 5); // "abcde"
+desc.slice(2, -2); // "cde"
+
+desc.substring(2, 5); // "cde"
+desc.substring(5, 2); // "cde"
+
+// substr(n, m) -> n부터 시작해서 m개 가져옴 
+desc.substr(2, 4); // "cdef"
+desc.substr(-4, 2); // "de"
