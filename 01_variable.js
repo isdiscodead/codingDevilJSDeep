@@ -191,3 +191,81 @@ desc.substring(5, 2); // "cde"
 // substr(n, m) -> n부터 시작해서 m개 가져옴 
 desc.substr(2, 4); // "cdef"
 desc.substr(-4, 2); // "de"
+
+
+// 문자열의 비교는 ASCII 코드를 기준으로 진행됨 
+"a".codePointAt(0); // 97
+String.fromCharCode(97); // "a"
+
+
+/*
+array
+*/
+
+let arr1 = [1,2,3,4,5];
+
+// find()는 함수로 복잡한 연산을 통한 검색 가능 ! 
+const resultArr = arr.find((item) => {
+	return item % 2 === 0;
+})
+
+console.log(resultArr);
+
+let userList = [
+	{ name : "Mike", age: 30 },
+	{ name : "Jane", age: 27 },
+	{ name : "Tom", age: 10 },
+];
+
+let newUserList = userList.map((user, index) => {
+	return Object.assign({}, user, { id : index, isAdult : user.age > 19 });
+});
+
+console.log(newUserList);
+
+// arr.sort() -> 문자열 혹은 전달된 함수를 기준으로 정렬 
+let testArr = [27, 8, 4, 13];
+
+function sortFn(a, b) {
+	return a - b; // a가 크면 양수, 같으면 0, a가 작으면 음수 
+	// 작은 수를 앞으로 보내는 내부 로직 
+}
+
+arr.sort(sortFn);
+
+console.log(arr);
+
+// 보통은 Lodash 같은 라이브러리 사용해서 _.sortBy(arr); 처럼 사용 
+
+// arr.reduce() -> arr.reduce(fnc) : ( 누적 계산값, 현재 값 ) ⇒ { return 계산값 }; 으로 사용 ... 누적 합산 등
+let reduceResult = arr.reduce((prev, cur)=> {
+	return prev + cur;
+}, 0); // 초기값은 optional ... 
+
+console.log(reduceResult);
+
+reduceResult = userList.reduce((prev, cur) => {
+	if ( cur.age > 19 ) {
+		prev.push(cur.name); // 19살 이상인 사람의 이름만 배열에 추가 
+	}
+	return prev; 
+}, []);
+
+// arr.reduceRight()는 동일하게 작동하지만 우측부터 연산 시작됨 ~~ 
+
+
+/*
+구조 분해 할당 ( Destructuring Assignment ) 
+*/
+// 배열 구조 분해 
+let users = ['Mike', 'Tom', 'Jane'];
+let [userA, userB, userC] = users;
+console.log(user2);
+
+// 배열 구조 분해 ... 기본값 설정 및 건너뛰기 
+let [x=1, , y=5] = [1, 2];
+console.log(x);
+console.log(y);
+
+// 바꿔치기
+[x, y] = [y, x];
