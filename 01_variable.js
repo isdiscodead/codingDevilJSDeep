@@ -7,8 +7,8 @@ var를 사용한 변수의 경우 호이스팅됨 ! let, const도 호이스팅�
 
 */
 
-console.log(name)
-var name = "Jane";
+console.log(nameVar)
+var nameVar = "Jane";
 
 
 
@@ -77,9 +77,9 @@ console.log(newUser);
 /*
 Symbol 심볼 -> 유일한 식별자를 만들 때 사용함 ! log 직으면 다 Symbol()로 뜨지만 내용물은 다름
 */
-const id = Symbol(); // new 없이 사용 ... 
-const id1 = Symbol('id'); // 매개변수로 들어가는 것은 설명 ! 
-const id2 = Symbol('id'); // id2와 다름
+let id = Symbol(); // new 없이 사용 ... 
+let id1 = Symbol('id'); // 매개변수로 들어가는 것은 설명 ! 
+let id2 = Symbol('id'); // id2와 다름
 console.log(id1.description);
 
 const symbolUser = { // 프로퍼티 키로 사용
@@ -135,7 +135,7 @@ console.log( userRate.toFixed(2) ); // "30.12"
 
 // isNaN() -> NaN인지 확인하는 유일한 방법 !! 
 NaN === NaN // false
-isNaN(x) // false
+isNaN(1) // false
 
 // parseInt()와 Number()
 let margin = '10px';
@@ -164,13 +164,13 @@ String
 
 // ", ', ` 사용 
 // `( 백틱 )은 변수, 표현식, 여러 줄을 포함한 문자열 사용 시 사용
-const name = "지언";
+let name = "지언";
 let result = `My name is ${name}.`;
 
 const str = "Hi guys. Nice to meet you.";
 
 str.length // 문자열 길이
-str[idx] // 특정 위치에 접근 … 변경은 불가
+str[2] // 특정 위치에 접근 … 변경은 불가
 str.toUpperCase() // 모두 대문자로 변경
 str.toLowerCase() // 모두 소문자로 변경
 str.indexOf('is'); // 특정 문자 인덱스 찾기
@@ -269,3 +269,9 @@ console.log(y);
 
 // 바꿔치기
 [x, y] = [y, x];
+
+// 객체 구조 분해 
+let {age, name2} = user; // key값 사용 시 순서 상관 X
+console.log(name2);
+let {name: userName, age: userAge} = user;
+console.log(userAge);
