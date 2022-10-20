@@ -275,3 +275,24 @@ let {age, name2} = user; // key값 사용 시 순서 상관 X
 console.log(name2);
 let {name: userName, age: userAge} = user;
 console.log(userAge);
+
+
+/*
+나머지 매개변수와 전개 구문
+ */
+// Rest Parameters ... : 개수가 정해지지 않은 인수를 배열처럼 사용
+// arguments와 달리 화살표 함수에서도 사용 가능, 배열 method 사용 가능 
+function showName(...names) {
+	console.log(names);
+}
+
+showName(); // [] 빈 배열 
+showName('Mike'); // ['Mike']
+showName('Mike', 'Tom'); // ['Mike', 'Tom']
+
+// 전개 구문 Spread Syntax
+// 배열, 객체를 풀어서 사용할 수 있음 
+let arrA = [1, 2, 3];
+let arrB = [4, 5, 6];
+arrA = [...arrA, ...arrB];
+console.log(arrA);
