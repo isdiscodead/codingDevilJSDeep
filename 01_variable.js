@@ -296,3 +296,16 @@ let arrA = [1, 2, 3];
 let arrB = [4, 5, 6];
 arrA = [...arrA, ...arrB];
 console.log(arrA);
+
+let programmer = { name : "Ggongchi" };
+let info = { age : 30 };
+let fe = ["JS", "React"];
+let lang = ["Korean", "English"];
+
+programmer = {
+	...user,
+	...info,
+	skills : [...fe, ...lang]
+};
+
+console.log(programmer);
