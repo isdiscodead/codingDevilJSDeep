@@ -37,3 +37,22 @@ let counter = makeCounter();
 console.log(counter()); // 0
 console.log(counter()); // 1
 console.log(counter()); // 2
+
+
+/*
+콜백 함수 ... setTimeout(), setInterval()
+*/
+function fn(name) {
+    console.log(name);
+}
+
+// setTimeout() -> 3초 후 log
+setTimeout(fn, 3000, "Mike");
+// 익명 함수로 사용해도 동일함 
+setTimeout(function() {
+    console.log("Jane")
+}, 3000)
+
+// setInterval() -> 3초 마다 실행
+const tId = setInterval(fn, 3000, "Tom");
+// clearInterval(tId);
