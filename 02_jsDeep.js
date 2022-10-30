@@ -56,3 +56,8 @@ setTimeout(function() {
 // setInterval() -> 3초 마다 실행
 const tId = setInterval(fn, 3000, "Tom");
 // clearInterval(tId);
+
+
+/*
+call, apply, bind
+*/
