@@ -61,3 +61,38 @@ const tId = setInterval(fn, 3000, "Tom");
 /*
 call, apply, bind
 */
+
+// call -> 모든 함수에서 사용할 수 있음, 객체를 인자로 받아 this를 특정 값으로 지정할 수 있음 
+const mike = {
+    name : "Mike",
+};
+
+const tom = {
+    name : "Tom",
+};
+
+function showThisName() {
+    console.log(this.name);
+}
+
+showThisName();
+showThisName.call(mike); // 객체의 method인 것처럼 사용 가능
+showThisName.call(tom);
+
+// 매개변수 사용
+function update(birthYear, occupation) {
+    this.birthYear = birthYear;
+    this.occupation = occupation;
+}
+
+update.call(mike, 1999, "singer");
+console.log(mike);
+
+// apply -> 함수 매개변수를 처리하는 방법을 제외하면 call과 동일함 ( 배열로 받음 )
+update.apply(tom, [2002, "teacher"]);
+console.log(tom);
+ 
+// bind -> 함수의 this 값을 영구히 변경 
+const updateMike = update.bind(mike);
+updateMike(1980, 'police');
+console.log(mike);
