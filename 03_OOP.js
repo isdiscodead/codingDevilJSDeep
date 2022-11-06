@@ -94,13 +94,17 @@ const z4 = new Bmw("Blue");
 
 // 오버라이딩 ( overriding )
 class Bmw2 extends Car {
-    park() {
-        console.log("PARK");
+    constructor(color) {
+        super(color); // 부모 constructor 먼저 호출해야 함 
+        this.navigation = 1;
     }
-    stop() {
-        super.stop(); // 부모의 기능도 사용
-        console.log("OFF"); 
-    }
+park() {
+    console.log("PARK");
+}
+stop() {
+    super.stop(); // 부모의 기능도 사용
+    console.log("OFF"); 
+}
 }
 
-z4 = new Bmw2("Blue"); 
+z4 = new Bmw2("Blue");
