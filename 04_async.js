@@ -82,3 +82,8 @@ Promise.race([f1(), f2(), f3()])
 .then( res => {
 	console.log(res)
 });
+
+
+/*
+async, await 
+*/
