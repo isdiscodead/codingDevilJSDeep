@@ -76,7 +76,7 @@ Promise.all([f1(), f2(), f3()])
 .then( res => {
 	console.log(res)
 });
-
+a
 // Promise.race -> 배열로 프로미스를 넘겨 하나라도 완료되면 종료 후 반환
 Promise.race([f1(), f2(), f3()])
 .then( res => {
@@ -87,3 +87,16 @@ Promise.race([f1(), f2(), f3()])
 /*
 async, await 
 */
+
+// 함수 앞에 async 키워드를 붙이면 반환 값이 항상 Promise가 됨 → then() 사용 가능 
+async function getName() {
+	return Promise.resolve("Tom");
+	// 함수 내부에서 에러 발생 시 rejected 상태의 프로미스 반환
+	// throw new Error("error...");
+} 
+
+getName().then((name) => {
+	console.log(name);
+})
+
+// await 키워드는 async 함수 내부에서만 사용 가능 !! 
