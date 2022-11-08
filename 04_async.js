@@ -100,3 +100,50 @@ getName().then((name) => {
 })
 
 // await 키워드는 async 함수 내부에서만 사용 가능 !! 
+function getName2(name) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(name);
+		}, 1000);
+	});
+}
+
+async function showName() {
+	const result = await getName2('Mike'); // Promise의 값을 기다림 
+	console.log(result); // 1초 후 출력됨 
+}
+
+// rejected는 try-catch문으로 감싸주면 됨 ! 
+const f1 = () => {
+	return new Promise((res, rej) => {
+		setTimeout(() => {
+			res("1번 주문 완료");
+		}, 1000);
+	})
+}
+
+const f2 = () => {
+	return new Promise((res, rej) => {
+		setTimeout(() => {
+			res("2번 주문 완료");
+		}, 3000);
+	})
+}
+
+const f3 = () => {
+	return new Promise((res, rej) => {
+		setTimeout(() => {
+			res("3번 주문 완료");
+		}, 2000);
+	})
+}
+
+// Promise.then()보다 높은 가독성 ! 
+console.log("시작");
+async function order() {
+	const result1 = await f1();
+	const result2 = await f2(result1);
+	const result3 = await f3(result2);
+	console.log(result3);
+	console.log("종료");
+}
