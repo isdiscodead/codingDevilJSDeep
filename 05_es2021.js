@@ -79,7 +79,12 @@ class MyCache {
     }
 
     get(key) {
-        
-    }
+        let cachedRef = this.cache[key].deref();
 
+        if ( cachedRef ) {
+            return cachedRef;
+        } else {
+            return false;
+        }
+    }
 }
